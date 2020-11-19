@@ -7,3 +7,6 @@
 {% for client in postgresql_hba_entries %}
 {{ client.type }} {{ client.database }} {{ client.user }} {{ client.address|default('') }} {{ client.ip_address|default('') }} {{ client.ip_mask|default('') }} {{ client.auth_method }} {{ client.auth_options|default("") }}
 {% endfor %}
+{% for client in postgresql_hba_entries_host | default([]) %}
+{{ client.type }} {{ client.database }} {{ client.user }} {{ client.address|default('') }} {{ client.ip_address|default('') }} {{ client.ip_mask|default('') }} {{ client.auth_method }} {{ client.auth_options|default("") }}
+{% endfor %}
